@@ -25,11 +25,11 @@ form {
     text-transform: uppercase;
 }
 #btnCrear {
-    border-radius: 0.5rem;
+    border-radius: 0.5vw;
     background-color: #FD841F;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 3vw;
 }
 #btnCrear:hover{
     background-color: #E14D2A;
