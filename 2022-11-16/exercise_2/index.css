@@ -19,7 +19,7 @@ form {
     width: 18rem;
     background-color: #FD841F;
     text-align: center;
-    margin: 0rem auto 0rem auto ;
+    margin: 2vh auto 2vh auto ;
 }
 .card-title{
     background-color: #E14D2A ;
@@ -41,4 +41,7 @@ input, textarea {
 .cards {
     display: flex;
     flex-flow: row wrap;
+}
+.hide {
+    display: none;
 }

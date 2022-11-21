@@ -1,18 +1,22 @@
 "use strict";
-let caja=document.querySelector(".cards");
-let btnCrear=document.getElementById("btnCrear");
-btnCrear.addEventListener('click',() => {
+let box=document.querySelector(".cards");
+let div=document.getElementById("myCard");
+let createButton=document.getElementById("btnCrear");
+let showCardButton=document.getElementById("showCardButton");
+createButton.addEventListener('click',() => {
     if(checkInput(loadTitle()) && checkInput(loadBody()) && checkInput(loadImage())){
-        caja.appendChild(createCard());
+        box.appendChild(createCard());
     } else {
         alert("Faltan campos por rellenar.");
     }
     clearInput();
 });
-togglear();
+div.addEventListener('click',togglear);
+showCardButton.addEventListener('click',showCards);
 function createCard(){
     let card=document.createElement("div");
     card.classList.add("card");
+    //card.setAttribute("id","myCard");
     let image=document.createElement("img")
     image.classList.add("card-img-top");
     image.setAttribute("src",loadImage());
@@ -55,7 +59,8 @@ function clearInput(){
     document.querySelector(".textArea").value="";
 }
 function togglear(){
-    document.querySelector(".card").addEventListener('click',()=>{
-    classList.toggle("hide");
-});
+    document.querySelector(".card").classList.replace("card","hide");
+}
+function showCards(){
+    document.querySelector(".hide").classList.replace("hide","card");
 }
