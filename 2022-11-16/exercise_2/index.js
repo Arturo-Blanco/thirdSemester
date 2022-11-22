@@ -1,8 +1,8 @@
 "use strict";
 let box=document.querySelector(".cards");
-let div=document.getElementById("myCard");
-let createButton=document.getElementById("btnCrear");
-let showCardButton=document.getElementById("showCardButton");
+
+let createButton=document.querySelector("#btnCrear");
+let showCardButton=document.querySelector("#showCardButton");
 createButton.addEventListener('click',() => {
     if(checkInput(loadTitle()) && checkInput(loadBody()) && checkInput(loadImage())){
         box.appendChild(createCard());
@@ -11,12 +11,12 @@ createButton.addEventListener('click',() => {
     }
     clearInput();
 });
-div.addEventListener('click',togglear);
 showCardButton.addEventListener('click',showCards);
+
 function createCard(){
     let card=document.createElement("div");
     card.classList.add("card");
-    //card.setAttribute("id","myCard");
+    card.addEventListener('click',togglear);
     let image=document.createElement("img")
     image.classList.add("card-img-top");
     image.setAttribute("src",loadImage());
@@ -62,5 +62,5 @@ function togglear(){
     document.querySelector(".card").classList.replace("card","hide");
 }
 function showCards(){
-    document.querySelector(".hide").classList.replace("hide","card");
+    document.querySelector(".hide").classList.replace("hide","card")
 }
