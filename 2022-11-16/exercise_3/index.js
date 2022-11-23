@@ -1,4 +1,5 @@
 let soundBomb=document.getElementById("bombSound");
+let bombExplosion=document.getElementById("explosion");
 let box=document.querySelector(".container");
 let btnBomb=document.getElementById("btnBomb");
 btnBomb.addEventListener('click',() => {
@@ -37,7 +38,6 @@ function countDown(time){
     let interval=setInterval(function(){
         if(i===0) {
             clearInterval(interval);
-            //document.querySelector(".divCounter").classList.add("hide");
             enviroment.classList.add("hide");
             document.querySelector(".counter").classList.add("hide");
             box.appendChild(createImg()).src="https://thumbs.dreamstime.com/b/caricatura-explosi%C3%B3n-de-auge-burbuja-del-discurso-c%C3%B3mico-p%C3%A1gina-libro-historietas-168523573.jpg";
@@ -47,6 +47,11 @@ function countDown(time){
                     document.querySelector(".red").classList.replace("red","yellow");
                 } else if(i<=6 && i>=3){
                     document.querySelector(".red").classList.replace("red","orange");
+                    switch(i){
+                        case 3:
+                        bombExplosion.play();
+                        break;
+                    }
                 }
                 document.querySelector(".counter").innerHTML=i;
             i--;
