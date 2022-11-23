@@ -33,7 +33,7 @@ function createImg(){
     return explosion;
 }
 function countDown(time){
-    i=time;
+    let i=time;
     let enviroment=createEnviroment()
     let interval=setInterval(function(){
         if(i===0) {
