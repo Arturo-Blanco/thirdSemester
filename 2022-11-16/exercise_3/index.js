@@ -1,11 +1,12 @@
-
+let soundBomb=document.getElementById("bombSound");
 let box=document.querySelector(".container");
-
 let btnBomb=document.getElementById("btnBomb");
 btnBomb.addEventListener('click',() => {
+    soundBomb.play();
     countDown(10);
     document.querySelector("#btnBomb").classList.add("hide");
 });
+
 function createEnviroment(){
     let containerEnviroment=document.createElement("div");
     containerEnviroment.setAttribute("class","containerEnviroment");
