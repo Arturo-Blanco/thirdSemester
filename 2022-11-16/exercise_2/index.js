@@ -62,5 +62,5 @@ function togglear(){
     document.querySelector(".card").classList.replace("card","hide");
 }
 function showCards(){
-    document.querySelector(".hide").classList.replace("hide","card")
+    document.querySelector(".hide").classList.replace("hide","card");
 }
