@@ -19,7 +19,8 @@ function createCard(){
     card.addEventListener('click',togglear);
     let image=document.createElement("img")
     image.classList.add("card-img-top");
-    image.setAttribute("src",loadImage());
+    image.src=loadImage();
+    //image.setAttribute("src",loadImage());
     let body=document.createElement("div");
     body.classList.add("card-body");
     let title=document.createElement("h5");

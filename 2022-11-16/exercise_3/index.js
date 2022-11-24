@@ -28,7 +28,7 @@ function createBomb() {
 }
 function createImg(){
     let explosion=document.createElement("img");
-    explosion.setAttribute("src","...");
+    //explosion.setAttribute("src","...");
     explosion.classList.add("img");
     return explosion;
 }

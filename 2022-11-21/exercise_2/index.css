@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 20vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btnNumber, .bodyButton {
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.btnOperator {
+    display: flex;
+    flex-direction: column;
+}
+.display {
+    width: 100%;
+    height: 10vh;
+}
+.btn_0,.btn_1,.btn_2,.btn_3,.btn_4,.btn_5,.btn_6,.btn_7,.btn_8,.btn_9 {
+    width: 2vw;
+    height: 10vh;
+}
