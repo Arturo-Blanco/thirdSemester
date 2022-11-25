@@ -1,6 +1,7 @@
 let displayOperator=document.querySelector(".displayOperator");
-let saveNumber=0;    //variable donde se guardan los valores que luego se van a imprimir en pantalla      
-let point=false;     //se inicia la coma decimal en false
+let saveNumber="0";   //variable donde se guardan los valores que luego se van a imprimir en pantalla      
+let point=false; 
+let operator="";    //se inicia la coma decimal en false
 let displayResult=document.querySelector(".displayResult");
 let btn_0=document.getElementById("btn_0");
 btn_0.addEventListener("click",() => {
@@ -46,6 +47,30 @@ let btn_point=document.getElementById("btn_point");
 btn_point.addEventListener("click",() => {
     printNumber(",");
 });
+let btn_sum=document.getElementById("btn_sum");
+btn_sum.addEventListener("click",()=> {
+    mathOperation("+");
+    //displayOperator.innerHTML+="+";
+});
+let btn_rest=document.getElementById("btn_rest");
+btn_rest.addEventListener("click",()=> {
+    mathOperation("-");
+    //displayOperator.innerHTML+="-";
+});
+let btn_split=document.getElementById("btn_split");
+btn_split.addEventListener("click",()=> {
+    mathOperation("/");
+    //displayOperator.innerHTML+="/";
+});
+let btn_multiplication=document.getElementById("btn_multiplication");
+btn_multiplication.addEventListener("click",()=> {
+    mathOperation("*");
+    //displayOperator.innerHTML+="*";
+});
+let btn_total=document.getElementById("btn_total");
+btn_total.addEventListener("click",()=> {
+    equal();
+});
 let btn_clearAll=document.getElementById("btn_clearAll");
 btn_clearAll.addEventListener("click",() => {
     displayOperator.innerHTML="";
@@ -76,9 +101,17 @@ function printNumber(value) {
         }
     }                           
     }
-function operator(value){
-
-}
+function mathOperation(operatorSimbol){
+    equal();
+    operator=operatorSimbol;
+    displayOperator.innerHTML+=operator;
+    }
 function equal() {
-    
+    if(operator===""){
+        displayOperator.innerHTML=saveNumber;
+    } else if (operator!==""){
+        let operation=saveNumber+operator+saveNumber;
+        let total=eval(operation);
+        displayResult.innerHTML=total;
+    }
 }
