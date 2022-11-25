@@ -56,15 +56,31 @@ body{
     font-size: 2vw;
     text-align: end;
 }
-#btn_0,#btn_1,#btn_2,#btn_3,#btn_4,#btn_5,#btn_6,#btn_7,#btn_8,#btn_9,#btn_point,#btn_clear {
+#btn_0,
+#btn_1,
+#btn_2,
+#btn_3,
+#btn_4,
+#btn_5,
+#btn_6,
+#btn_7,
+#btn_8,
+#btn_9,
+#btn_point,
+#btn_clear {
     width: 30%;
-    height: 20%;
+    height: 23%;
     margin: 2% 2% 0 0;
     border-radius: 45%;
     background-color: gray;
     font-size: 2vw;
 }
-#btn_clearAll,#btn_sum,#btn_rest,#btn_split,#btn_multiplication,#btn_total {
+#btn_clearAll,
+#btn_sum,
+#btn_rest,
+#btn_split,
+#btn_multiplication,
+#btn_total {
     height: 16%;
     margin-top: 3%;
     border-radius: 45%;

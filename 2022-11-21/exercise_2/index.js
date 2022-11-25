@@ -1,53 +1,84 @@
 let displayOperator=document.querySelector(".displayOperator");
-displayOperator.innerHTML="";
+let saveNumber=0;    //variable donde se guardan los valores que luego se van a imprimir en pantalla      
+let point=false;     //se inicia la coma decimal en false
 let displayResult=document.querySelector(".displayResult");
 let btn_0=document.getElementById("btn_0");
 btn_0.addEventListener("click",() => {
-    displayOperator.innerHTML+="0";
+    printNumber("0");
 });
 let btn_1=document.getElementById("btn_1");
 btn_1.addEventListener("click",() => {
-    displayOperator.innerHTML+="1";
+    printNumber("1");
 });
 let btn_2=document.getElementById("btn_2");
 btn_2.addEventListener("click",() => {
-    displayOperator.innerHTML+="2";
+    printNumber("2");
 });
 let btn_3=document.getElementById("btn_3");
 btn_3.addEventListener("click",() => {
-    displayOperator.innerHTML+="3";
+    printNumber("3");
 });
 let btn_4=document.getElementById("btn_4");
 btn_4.addEventListener("click",() => {
-    displayOperator.innerHTML+="4";
+    printNumber("4");
 });
 let btn_5=document.getElementById("btn_5");
 btn_5.addEventListener("click",() => {
-    displayOperator.innerHTML+="5";
+    printNumber("5");
 });
 let btn_6=document.getElementById("btn_6");
 btn_6.addEventListener("click",() => {
-    displayOperator.innerHTML+="6";
+    printNumber("6");
 });
 let btn_7=document.getElementById("btn_7");
 btn_7.addEventListener("click",() => {
-
-
-    displayOperator.innerHTML+="7";
+    printNumber("7");
 });
 let btn_8=document.getElementById("btn_8");
 btn_8.addEventListener("click",() => {
-    displayOperator.innerHTML+="8";
+    printNumber("8");
 });
 let btn_9=document.getElementById("btn_9");
 btn_9.addEventListener("click",() => {
-    displayOperator.innerHTML+="9";
+    printNumber("9");
 });
 let btn_point=document.getElementById("btn_point");
 btn_point.addEventListener("click",() => {
-    displayOperator.innerHTML+=",";
+    printNumber(",");
 });
 let btn_clearAll=document.getElementById("btn_clearAll");
 btn_clearAll.addEventListener("click",() => {
     displayOperator.innerHTML="";
+    displayResult.innerHTML="";
 });
+function printNumber(value) {
+    if (saveNumber=="0") {                // inicializar un número, 
+        displayOperator.innerHTML=value;   //mostrar en pantalla
+        saveNumber=value;                           //guardar número
+        if (value===",") {                 //si escribimos una coma al principio del número
+           displayOperator.innerHTML="0,"; //escribimos 0.
+           saveNumber=value;                        //guardar número
+           point=true;                     //cambiar estado de la coma
+        }
+    }
+       else {                                        //continuar escribiendo un número
+           if (value==="," && point===false) {      //si escribimos una coma decimal p�r primera vez
+            displayOperator.innerHTML+=value;
+            saveNumber+=value;
+            point=true;                          //cambiar el estado de la coma  
+        }
+         //si intentamos escribir una segunda coma decimal no realiza ninguna acción.
+        else if (value=="," && point==true) {} 
+        //Resto de casos: escribir un número del 0 al 9: 	 
+        else {
+            displayOperator.innerHTML+=value;
+            saveNumber+=value
+        }
+    }                           
+    }
+function operator(value){
+
+}
+function equal() {
+    
+}
