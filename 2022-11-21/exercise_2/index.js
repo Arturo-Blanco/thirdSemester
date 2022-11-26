@@ -1,9 +1,9 @@
-let displayOperator=document.querySelector(".displayOperator");     
+let operationDisplay=document.querySelector(".operationDisplay");
+let resultDisplay=document.querySelector(".resultDisplay");     
 let saveNumber="0";
 let point=false; 
 let total=0;
 let operator=false;
-let displayResult=document.querySelector(".displayResult");
 
 let btn_0=document.getElementById("btn_0");
 btn_0.addEventListener("click",() => {
@@ -49,6 +49,10 @@ let btn_point=document.getElementById("btn_point");
 btn_point.addEventListener("click",() => {
     printNumber(".");
 });
+let btn_percent=document.getElementById("btn_percent");
+btn_percent.addEventListener("click",()=> {
+    mathOperation("%");
+});
 let btn_sum=document.getElementById("btn_sum");
 btn_sum.addEventListener("click",() => {
     mathOperation("+");
@@ -75,71 +79,84 @@ btn_clear.addEventListener("click",() => {
 });
 let btn_clearAll=document.getElementById("btn_clearAll");
 btn_clearAll.addEventListener("click",() => {
-    displayOperator.innerHTML="";
-    displayResult.innerHTML="";
+    operationDisplay.innerHTML="";
+    resultDisplay.innerHTML="";
     saveNumber="0";
     point=false; 
     total=0;
     operator=false;
 });
 function printNumber(value){
-    if(saveNumber=="0") {                 
-        displayOperator.innerHTML=value;  
+    if(saveNumber==="0") {                 
+        operationDisplay.innerHTML=value;  
         saveNumber=value;                           
         if(value==="."){                 
-            displayOperator.innerHTML="0."; 
+            operationDisplay.innerHTML="0."; 
             saveNumber=value;                      
             point=true;
             operator=false;                   
         }
     } else {                                   
         if(value==="." && point===false){     
-            displayOperator.innerHTML+=value;
+            operationDisplay.innerHTML+=value;
             saveNumber+=value;
             point=true;
             operator=false;                         
-        } else {
-            displayOperator.innerHTML+=value;
+        } else if(value==="." && point===true){}
+            else {
+            operationDisplay.innerHTML+=value;
             saveNumber+=value;
             operator=false;
         }
     }                           
 }
 function mathOperation(operatorSimbol){
-    if(operator===false){
+    let aux=saveNumber.slice(-1);
+    if(operator===false && aux!=="*" && aux!=="/" && aux!=="+" && aux!=="-" && aux!=="." && aux!=="%"){
         if(saveNumber!=="0" && operatorSimbol!=="" && total==0){
-            displayOperator.innerHTML+=operatorSimbol;
+            operationDisplay.innerHTML+=operatorSimbol;
             saveNumber+=operatorSimbol;
             operator=true;
+            point=false
         } else {
-            displayOperator.innerHTML=total+operatorSimbol;
+            operationDisplay.innerHTML=total+operatorSimbol;
             saveNumber=total+operatorSimbol;
             operator=true;
+            point=false;
         }
     }
 }
 function equal(value){
-    total=eval(value);
+    let aux=value.slice(-1);
+    if(aux!=="*" && aux!=="/" && aux!=="+" && aux!=="-" && aux!=="." && aux!=="%"){
+        total=eval(value)
     if(Number.isInteger(total)){
-        displayResult.innerHTML=total;
+        resultDisplay.innerHTML=total;
     } else {
         total=total.toFixed(2);
-        displayResult.innerHTML=total;
+        resultDisplay.innerHTML=total;
     }
     operator=false;
+    } else {
+        operationDisplay.innerHTML="";
+        resultDisplay.innerHTML="Syntax ERROR";
+    }
 }
 function back(){
-    let values=saveNumber.length;
-    let back=saveNumber.substring(0,values-1);
-    saveNumber=saveNumber.substring(0,values-1);
+    let aux;
+    aux=saveNumber.slice(-1);
+    saveNumber=saveNumber.slice(0,-1);
+    verifiBack(aux);
+    operationDisplay.innerHTML=saveNumber;
+}
+function verifiBack(value){
+    if(value==="*"||value==="+"||value==="-"||value==="/"){
+        operator=false;
+    }
+    if(value==="."){
+        point=false;
+    }
     if(saveNumber===""){
         saveNumber="0";
     }
-    if(back==="*"||back==="+"||back==="-"||back==="/"){
-        operator=true;
-    }
-    if(back===","){
-        point==false;
-    }
-    displayOperator.innerHTML=saveNumber;
 }
