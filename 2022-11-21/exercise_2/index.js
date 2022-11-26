@@ -1,8 +1,10 @@
-let displayOperator=document.querySelector(".displayOperator");
-let saveNumber="0";   //variable donde se guardan los valores que luego se van a imprimir en pantalla      
+let displayOperator=document.querySelector(".displayOperator");     
+let saveNumber="0";
 let point=false; 
-let operator="";    //se inicia la coma decimal en false
+let total=0;
+let operator=false;
 let displayResult=document.querySelector(".displayResult");
+
 let btn_0=document.getElementById("btn_0");
 btn_0.addEventListener("click",() => {
     printNumber("0");
@@ -45,73 +47,99 @@ btn_9.addEventListener("click",() => {
 });
 let btn_point=document.getElementById("btn_point");
 btn_point.addEventListener("click",() => {
-    printNumber(",");
+    printNumber(".");
 });
 let btn_sum=document.getElementById("btn_sum");
-btn_sum.addEventListener("click",()=> {
+btn_sum.addEventListener("click",() => {
     mathOperation("+");
-    //displayOperator.innerHTML+="+";
 });
 let btn_rest=document.getElementById("btn_rest");
-btn_rest.addEventListener("click",()=> {
+btn_rest.addEventListener("click",() => {
     mathOperation("-");
-    //displayOperator.innerHTML+="-";
 });
 let btn_split=document.getElementById("btn_split");
-btn_split.addEventListener("click",()=> {
+btn_split.addEventListener("click",() => {
     mathOperation("/");
-    //displayOperator.innerHTML+="/";
 });
 let btn_multiplication=document.getElementById("btn_multiplication");
-btn_multiplication.addEventListener("click",()=> {
+btn_multiplication.addEventListener("click",() => {
     mathOperation("*");
-    //displayOperator.innerHTML+="*";
 });
 let btn_total=document.getElementById("btn_total");
-btn_total.addEventListener("click",()=> {
-    equal();
+btn_total.addEventListener("click",() => {
+    equal(saveNumber);
+});
+let btn_clear=document.getElementById("btn_clear");
+btn_clear.addEventListener("click",() => {
+    back();
 });
 let btn_clearAll=document.getElementById("btn_clearAll");
 btn_clearAll.addEventListener("click",() => {
     displayOperator.innerHTML="";
     displayResult.innerHTML="";
+    saveNumber="0";
+    point=false; 
+    total=0;
+    operator=false;
 });
-function printNumber(value) {
-    if (saveNumber=="0") {                // inicializar un número, 
-        displayOperator.innerHTML=value;   //mostrar en pantalla
-        saveNumber=value;                           //guardar número
-        if (value===",") {                 //si escribimos una coma al principio del número
-           displayOperator.innerHTML="0,"; //escribimos 0.
-           saveNumber=value;                        //guardar número
-           point=true;                     //cambiar estado de la coma
+function printNumber(value){
+    if(saveNumber=="0") {                 
+        displayOperator.innerHTML=value;  
+        saveNumber=value;                           
+        if(value==="."){                 
+            displayOperator.innerHTML="0."; 
+            saveNumber=value;                      
+            point=true;
+            operator=false;                   
         }
-    }
-       else {                                        //continuar escribiendo un número
-           if (value==="," && point===false) {      //si escribimos una coma decimal p�r primera vez
+    } else {                                   
+        if(value==="." && point===false){     
             displayOperator.innerHTML+=value;
             saveNumber+=value;
-            point=true;                          //cambiar el estado de la coma  
-        }
-         //si intentamos escribir una segunda coma decimal no realiza ninguna acción.
-        else if (value=="," && point==true) {} 
-        //Resto de casos: escribir un número del 0 al 9: 	 
-        else {
+            point=true;
+            operator=false;                         
+        } else {
             displayOperator.innerHTML+=value;
-            saveNumber+=value
+            saveNumber+=value;
+            operator=false;
         }
     }                           
-    }
+}
 function mathOperation(operatorSimbol){
-    equal();
-    operator=operatorSimbol;
-    displayOperator.innerHTML+=operator;
+    if(operator===false){
+        if(saveNumber!=="0" && operatorSimbol!=="" && total==0){
+            displayOperator.innerHTML+=operatorSimbol;
+            saveNumber+=operatorSimbol;
+            operator=true;
+        } else {
+            displayOperator.innerHTML=total+operatorSimbol;
+            saveNumber=total+operatorSimbol;
+            operator=true;
+        }
     }
-function equal() {
-    if(operator===""){
-        displayOperator.innerHTML=saveNumber;
-    } else if (operator!==""){
-        let operation=saveNumber+operator+saveNumber;
-        let total=eval(operation);
+}
+function equal(value){
+    total=eval(value);
+    if(Number.isInteger(total)){
+        displayResult.innerHTML=total;
+    } else {
+        total=total.toFixed(2);
         displayResult.innerHTML=total;
     }
+    operator=false;
+}
+function back(){
+    let values=saveNumber.length;
+    let back=saveNumber.substring(0,values-1);
+    saveNumber=saveNumber.substring(0,values-1);
+    if(saveNumber===""){
+        saveNumber="0";
+    }
+    if(back==="*"||back==="+"||back==="-"||back==="/"){
+        operator=true;
+    }
+    if(back===","){
+        point==false;
+    }
+    displayOperator.innerHTML=saveNumber;
 }
