@@ -1,3 +1,7 @@
+:root{
+--background-color: ;
+--border-radius: ;
+}
 body {
     background-color: rgba(50, 226, 56, 0.246);
 }
@@ -17,7 +21,6 @@ button{
     height: 10vh;
     margin-bottom: 4vh;
 }
-
 .container {
     height: max-content;
     display: flex;
@@ -33,16 +36,6 @@ button{
     height: 20vh;
     margin: 0.5vw 0.5vw 0.5vw 0.5vw;
     border: black 2px solid ;
-}
-.azul{
-    background-color: blue;
-}
-.rojo {
-    background-color: red;
-}
-.amarillo {
-    background-color: yellow;
-}
-.verde {
-    background-color: green;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
 }

@@ -12,9 +12,11 @@ btnCreate.addEventListener("click", ()=>{
 });
 function createDiv() {
     let valueColour=colourDiv.value;
+    let valueBorder=formDiv.value;
     let newDiv=document.createElement("div");
     newDiv.classList.add("styleDiv");
-    newDiv.classList.add(valueColour);
+    newDiv.style.setProperty("--background-color",valueColour);
+    newDiv.style.setProperty("--border-radius",valueBorder+"px");
     boxContain.appendChild(newDiv);
 }
 function multiplyDiv(number) {
