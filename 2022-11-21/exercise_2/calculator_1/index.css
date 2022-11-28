@@ -1,0 +1,91 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: coral;
+}
+.container {
+    width: 23vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1vw 1vw 1vw 1vw;
+    margin-top: 2vw;
+    border-radius: 2vw;
+    background-color: black;
+}
+.bodyButton {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.mainDisplay {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    border: black 0.2vw solid;
+    border-radius: 2%;
+    background-color: rgb(141, 198, 248);
+}
+.operationDisplay, .resultDisplay {
+    display: flex;
+    width: 100%;
+    height: 30%;
+    font-size: 6vh;
+    align-items: center;
+    justify-content: end;
+}
+.resultDisplay {
+    height: 70%;
+    font-size: 7vh;
+}
+#btn_0,
+#btn_1,
+#btn_2,
+#btn_3,
+#btn_4,
+#btn_5,
+#btn_6,
+#btn_7,
+#btn_8,
+#btn_9,
+#btn_point,
+#btn_clear,
+#btn_sum,
+#btn_rest,
+#btn_split,
+#btn_multiplication,
+#btn_clearAll,
+#btn_sign,
+#btn_percent,
+#btn_total  {
+    width: 24%;
+    height: 19%;
+    margin: 1% 1% 0 0;
+    border-radius: 30%;
+    background-color: gray;
+    font-size: 2vw;
+}
+#btn_total{
+    background-color: rgb(7, 67, 179);
+}
+#btn_clearAll{
+    background-color: orange;
+}
+@media screen and (max-width: 800px) {
+    .container {
+        height: 60vw;
+        width: 40vw;
+    }
+    .operationDisplay{
+        font-size: 4vh;
+    }
+    .resultDisplay {
+        font-size: 5vh;
+    }
+}
