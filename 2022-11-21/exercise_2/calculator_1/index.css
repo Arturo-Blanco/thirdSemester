@@ -2,7 +2,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: coral;
+    background-image: url("https://img.freepik.com/fotos-premium/cosas-oficina-mesa-lugar-trabajo-vista-superior_36247-632.jpg");
+    background-size: cover;
 }
 .container {
     width: 23vw;
