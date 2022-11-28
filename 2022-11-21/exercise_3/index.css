@@ -1,0 +1,27 @@
+.container {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+}
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.styleDiv {
+    width: 5vw;
+    height: 20vh;
+    margin: 0.5vw 0.5vw 0.5vw 0.5vw;
+}
+.azul{
+    background-color: blue;
+}
+.rojo {
+    background-color: red;
+}
+.amarillo {
+    background-color: yellow;
+}
+.verde {
+    background-color: green;
+}
