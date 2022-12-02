@@ -130,13 +130,13 @@ function showResult(value){
     let aux=value.slice(-1);
     if(aux!=="*" && aux!=="/" && aux!=="+" && aux!=="-" && aux!=="." && aux!=="%"){
         total= equal(value, calculator);
-    if(Number.isInteger(total)){
-        resultDisplay.innerHTML=total;
-    } else {
-        //total=total.toFixed(2);
-        resultDisplay.innerHTML=total;
-    }
-    operator=false;
+        if(Number.isInteger(total)){
+            resultDisplay.innerHTML=total;
+        } else {
+            total=total.toFixed(2);
+            resultDisplay.innerHTML=total;
+        }
+            operator=false;
     } else {
         operationDisplay.innerHTML="";
         resultDisplay.innerHTML="Syntax ERROR";
