@@ -10,24 +10,35 @@
 </head>
 <body>
     <h1>Employee data</h1>
+    <div class="addEmployee">
+        <label for="name"> Name
+        <input type="text" class="name"></label>
+        <label for="city"> City
+        <input type="text" class="city"></label>
+        <label for="birthday"> Birthday
+        <input type="text" class="birthday"></label>
+        <label for="email"> Email
+        <input type="text" class="email"></label>
+        <button type="button" id="btnAdd">Add</button>
+        <button type="button" id="btnCancel">Cancel</button>
+    </div>
+    <div class="container">
     <section class="tabla">
-    <table >
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>City</th>
-                <th>Birthday</th>
-                <th>Email</th>
-                <th>ID</th>
-            </tr>
-        </thead>
-        <tbody id="table">
-        </tbody>
-    </table>
-    </section>
-<section class="btn">
-    <button type="button" class="oculto"> Editar </button>
-    <button type="button" class="oculto" id="btnEliminar"> Eliminar </button>
-</section>
+        <table >
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Birthday</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="table">
+            </tbody>
+        </table>
+        </section>
+    </div>
 </body>
 </html>

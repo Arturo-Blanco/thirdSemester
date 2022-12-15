@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             item.addEventListener("mouseover", (e) => {
                 document.querySelector("section.img img").classList.remove("oculto");
                 let url2 = `${url}/${(e.target.innerHTML).trim()}`;
+                console.log(e.target);
                 cargarImg(url2);
             })
         })
