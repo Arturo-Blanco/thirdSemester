@@ -41,7 +41,10 @@ function loadData(value){
 
     let btnEdit = document.querySelectorAll(".btnEditar");
     btnEdit.forEach(btn => {
-        btn.addEventListener("click", editEmployee)
+        btn.addEventListener("click", () => {
+            console.log("Hola");
+            editEmployee();
+        })
         });
 
     function editEmployee(){

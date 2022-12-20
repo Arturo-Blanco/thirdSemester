@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(195, 188, 235, 0.918);
+}
+.employeeList, .addEmployee{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.addEmployee{
+    width: 55rem;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+}
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 7vh;
+    color: rgb(32, 22, 4);
+}
+label,input {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.5rem;
+    margin-left:0.5rem ;
+}
+input{
+    width: 90%;
+    border-radius: 1rem;
+}
+#btnAdd, #btnCancel {
+    font-size: 2vw;
+    width: 20%;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    border-radius: 1rem;
+}
+#btnAdd, .btnEdit{
+    background-color: rgb(7, 240, 46);
+}
+#btnCancel, .btnDelete{
+    background-color: red;
+}
+.id {
+    margin: 0rem 25rem 0rem 25rem;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 20%;
+    height: 100%;
+    margin: 0vw 2vw 2vw 0vw;
+    text-align: center;
+    background-color: cornflowerblue;
+    border-radius: 2rem;
+}
+.btnEdit, .btnDelete {
+    width: 30%;
+    font-size: 1rem;
+    border-radius: 1rem;
+    margin: 0rem 1rem 2rem 1rem;
+}
