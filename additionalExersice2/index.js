@@ -23,6 +23,7 @@ function chargeData(){
     let email=document.createElement("p");
         email.innerHTML=employee.email;
     let ID=document.createElement("p");
+        ID.className="idCard";
         ID.innerHTML=employee.id;
     let divButton=document.createElement("div");
         divButton.className="divButton";
@@ -58,12 +59,16 @@ function chargeData(){
 }
 let addButton=document.getElementById("btnAdd");
     addButton.addEventListener("click", () => {
-        if(inputID.value!==undefined && inputID.value!==" "){
+        if(inputID.value!==undefined && inputID.value!==""){
             saveData();
             clearInput(); 
         } else {
+            if(inputName.value!==undefined && inputName.value!==""){
             addEmployee();
             clearInput();
+            } else {
+                alert("Ingrese el nombre del empleado para continuar");
+            }
         }
     });
 let cancelButton=document.getElementById("btnCancel");
