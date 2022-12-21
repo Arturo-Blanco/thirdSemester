@@ -19,43 +19,47 @@ body {
     width: 60vw;
     height: 30vh;
 }
-input {
-    height: 7vh;
+input{
+    font-size: 1.4vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 5vh;
     width: 20vw;
     border-radius: 1vw;
+    margin-right:1vw ;
 }
 label{
-    width: 4vw;
-    margin-right:2vw ;
+    font-size: 1.5vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 7vh;
     color: rgb(32, 22, 4);
 }
-#btnAdd, .btnEdit{
+#btnAdd,.btnEdit{
     background-color: rgb(7, 240, 46);
 }
-#btnCancel, .btnDelete{
+#btnCancel,.btnDelete{
     background-color: red;
 }
 .id {
-    margin: 0rem 25rem 0rem 25rem;
+    margin: 0vw 25vw 0vw 25vw;
 }
 .card{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 20%;
+    width: 18%;
     height: 100%;
     margin: 0vw 2vw 2vw 0vw;
     text-align: center;
     background-color: cornflowerblue;
     border-radius: 2rem;
 }
-.btnEdit, .btnDelete {
-    width: 30%;
-    font-size: 1rem;
-    border-radius: 1rem;
-    margin: 0rem 1rem 2rem 1rem;
+.btnEdit,.btnDelete,#btnCancel,#btnAdd{
+    width: 7vw;
+    height: 5vh;
+    font-size: 3vh;
+    border-radius: 1vw;
+    margin: 0vw 1vw 2vw 1vw;
 }

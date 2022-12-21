@@ -1,6 +1,6 @@
 let url = "https://6393e57e11ed187986bf9667.mockapi.io/api/curso/employees";
 
-let employeesData;
+let employeesData=[];
 
 let box=document.querySelector(".employeeList");
 let inputName=document.querySelector(".name");
@@ -9,9 +9,9 @@ let inputBirthday=document.querySelector(".birthday");
 let inputEmail=document.querySelector(".email");
 let inputID=document.querySelector(".id");
 
-function chargeData(value){
-    for(let i=0;i<value.length;i++){
-        let employee=value[i];
+function chargeData(){
+    for(let i=0;i<employeesData.length;i++){
+        let employee=employeesData[i];
     let card=document.createElement("div");
         card.className="card";
     let name=document.createElement("h4");
@@ -21,7 +21,7 @@ function chargeData(value){
     let birthday=document.createElement("p");
         birthday.innerHTML=employee.birthday;
     let email=document.createElement("p");
-        email.innerHTML=employee.email
+        email.innerHTML=employee.email;
     let ID=document.createElement("p");
         ID.innerHTML=employee.id;
     let divButton=document.createElement("div");
@@ -56,11 +56,10 @@ function chargeData(value){
         });
     }
 }
-
 let addButton=document.getElementById("btnAdd");
     addButton.addEventListener("click", () => {
         if(inputID.value!==undefined && inputID.value!==" "){
-            saveUser();
+            saveData();
             clearInput(); 
         } else {
             addEmployee();
@@ -83,7 +82,7 @@ function deleteEmployee(){
     i=this.value;
     employeesData.splice(i,1);
     box.innerHTML=" ";
-    chargeData(employeesData);
+    chargeData();
     clearInput();
 }
 function saveData(){
@@ -93,13 +92,13 @@ function saveData(){
     employeesData[i].birthday=inputBirthday.value;
     employeesData[i].email=inputEmail.value;
     box.innerHTML=" ";
-    chargeData(employeesData);
+    chargeData();
 }
 function addEmployee(){
     let aux={name:inputName.value, city:inputCity.value, birthday:inputBirthday.value, email:inputEmail.value, id:(employeesData.length+1)};
     employeesData.push(aux);
     box.innerHTML=" ";
-    chargeData(employeesData);
+    chargeData();
 }
 function clearInput(){
     inputName.value=" ";
@@ -113,5 +112,5 @@ fetch(url)
 .then(Response => Response.json())
 .then(data => {
     employeesData=data;
-    chargeData(employeesData);
+    chargeData();
 });
