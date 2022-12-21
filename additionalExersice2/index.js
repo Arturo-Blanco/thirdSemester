@@ -11,19 +11,48 @@ let inputID=document.querySelector(".id");
 
 function chargeData(value){
     for(let i=0;i<value.length;i++){
-        createCard(i);
+        let employee=value[i];
+    let card=document.createElement("div");
+        card.className="card";
+    let name=document.createElement("h4");
+        name.innerHTML=employee.name;
+    let city=document.createElement("p");
+        city.innerHTML=employee.city;
+    let birthday=document.createElement("p");
+        birthday.innerHTML=employee.birthday;
+    let email=document.createElement("p");
+        email.innerHTML=employee.email
+    let ID=document.createElement("p");
+        ID.innerHTML=employee.id;
+    let divButton=document.createElement("div");
+        divButton.className="divButton";
+    let editButton=document.createElement("button");
+        editButton.type="button";
+        editButton.innerHTML="Edit";
+        editButton.className="btnEdit";
+        editButton.value=i;
+    let deleteButton=document.createElement("button");
+        deleteButton.type="button";
+        deleteButton.innerHTML="Delete";
+        deleteButton.className="btnDelete";
+        deleteButton.value=i;
+    box.appendChild(card);
+    card.appendChild(name);
+    card.appendChild(city);
+    card.appendChild(birthday);
+    card.appendChild(email);
+    card.appendChild(ID);
+    divButton.appendChild(editButton);
+    divButton.appendChild(deleteButton);
+    card.appendChild(divButton);
 
-    let editEmployeeButton=document.querySelectorAll("#btnEdit"+i);
+    let editEmployeeButton=document.querySelectorAll(".btnEdit");
         editEmployeeButton.forEach(btn => {
-            btn.addEventListener("click", () => {
-                editEmployee(i);
-            });
+            btn.addEventListener("click", editEmployee);
         });
-    let deleteEmployeeButton=document.querySelectorAll("#btnDelete"+i);
+    let deleteEmployeeButton=document.querySelectorAll(".btnDelete");
         deleteEmployeeButton.forEach(btn => {
-            btn.addEventListener("click", () => {
-                deleteUser(i);
-            });
+            btn.addEventListener("click", deleteEmployee);
         });
     }
 }
@@ -40,57 +69,24 @@ let addButton=document.getElementById("btnAdd");
     });
 let cancelButton=document.getElementById("btnCancel");
     cancelButton.addEventListener("click", clearInput);
-
-function createCard(value){
-    let card=document.createElement("div");
-        card.className="card";
-    let name=document.createElement("h4");
-        name.innerHTML=employeesData[value].name;
-    let city=document.createElement("p");
-        city.innerHTML=employeesData[value].city;
-    let birthday=document.createElement("p");
-        birthday.innerHTML=employeesData[value].birthday;
-    let email=document.createElement("p");
-        email.innerHTML=employeesData[value].email
-    let ID=document.createElement("p");
-        ID.innerHTML=employeesData[value].id;
-    let divButton=document.createElement("div");
-        divButton.className="divButton";
-    let editButton=document.createElement("button");
-        editButton.type="button";
-        editButton.innerHTML="Edit";
-        editButton.id="btnEdit"+value;
-        editButton.className="btnEdit";
-    let deleteButton=document.createElement("button");
-        deleteButton.type="button";
-        deleteButton.innerHTML="Delete";
-        deleteButton.className="btnDelete";
-        deleteButton.id="btnDelete"+value;
-    box.appendChild(card);
-    card.appendChild(name);
-    card.appendChild(city);
-    card.appendChild(birthday);
-    card.appendChild(email);
-    card.appendChild(ID);
-    divButton.appendChild(editButton);
-    divButton.appendChild(deleteButton);
-    card.appendChild(divButton);
+    
+function editEmployee(){
+    i=this.value;
+    inputName.value=employeesData[i].name;
+    inputCity.value=employeesData[i].city;
+    inputBirthday.value=employeesData[i].birthday;
+    inputEmail.value=employeesData[i].email;
+    inputID.innerHTML="ID: "+employeesData[i].id;
+    inputID.value=i;
 }
-function editEmployee(employee){
-    inputName.value=employeesData[employee].name;
-    inputCity.value=employeesData[employee].city;
-    inputBirthday.value=employeesData[employee].birthday;
-    inputEmail.value=employeesData[employee].email;
-    inputID.innerHTML="ID: "+employeesData[employee].id;
-    inputID.value=employee;
-}
-function deleteUser(employee){
-    employeesData.splice(employee,1);
+function deleteEmployee(){
+    i=this.value;
+    employeesData.splice(i,1);
     box.innerHTML=" ";
     chargeData(employeesData);
     clearInput();
 }
-function saveUser(){
+function saveData(){
     let i=inputID.value;
     employeesData[i].name=inputName.value;
     employeesData[i].city=inputCity.value;
