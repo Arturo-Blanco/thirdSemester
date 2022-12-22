@@ -62,7 +62,7 @@ let addButton=document.getElementById("btnAdd");
             saveData();
             clearInput(); 
         } else {
-            if(inputName.value!==undefined && inputName.value!==" "){
+            if(inputName.value!==undefined && inputName.value!==" " && inputName.value!==""){
             addEmployee();
             clearInput();
             } else {
